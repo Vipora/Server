@@ -1,20 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Hello Adonis</title>
-  {{ style('style') }}
+    <meta charset="UTF-8" />
+    <title>Vipora - 404, You got lost!</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+    {{ style('style') }}
 </head>
-<body>
-  <section>
-    <div class="logo"></div>
-    <div class="title"></div>
-    <div class="subtitle">
-      <p>AdonisJs simplicity will make you feel confident about your code</p>
-      <p>
-        Don't know where to start? Read the <a href="https://adonisjs.com/docs">documentation</a>.
-      </p>
+<body class="bg-indigo-darkest border-t-4 border-indigo">
+    <div class="absolute pin flex flex-col justify-center items-center">
+            <img class="logo" width="200" src="404.svg" alt="404">
+            <div class="mt-6 uppercase text-3xl text-indigo-darker font-bold">Yarr!</div>
+            <div class="mt-2 uppercase text-xl text-indigo-darker font-bold">You got lost in the sea</div>
     </div>
-  </section>
 </body>
 </html>
