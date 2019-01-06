@@ -132,7 +132,7 @@ module.exports = {
   |
   */
   csrf: {
-    enable: true,
+    enable: false, // Disable it since this is an API.
     methods: ['POST', 'PUT', 'DELETE'],
     filterUris: [],
     cookieOptions: {

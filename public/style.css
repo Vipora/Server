@@ -11,8 +11,8 @@ body, html {
 }
 
 @keyframes vertical {
-    0%   { top: 0px; }
-    33%  { top: -15px; }
-    66%  { top: 15px; }
+    0% { top: 0px; }
+    33% { top: -15px; }
+    66% { top: 15px; }
     100% { top: 0px; }
-  }
+}
