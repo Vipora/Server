@@ -15,6 +15,9 @@
 
 const Ws = use('Ws')
 
-Ws.channel('chat', ({ socket }) => {
+Ws.channel('chat', ({ socket, auth }) => {
+  console.log('auth');
   console.log('user joined with %s socket id', socket.id)
-})
+});
+
+Ws.channel('bridge:*', 'BridgeController').middleware(['auth:jwt,api', 'userRooms']);

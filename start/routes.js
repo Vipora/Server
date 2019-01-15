@@ -20,6 +20,8 @@ Route.group(() => {
     Route.post('/auth/register', 'UserController.register')
     Route.post('/auth/logout', 'UserController.logout')
     Route.post('/auth/token/refresh', 'UserController.refresh')
+
+    Route.get('/user/token', 'UserController.accessToken').middleware(['auth'])
 }).prefix('api/v1');
 
 

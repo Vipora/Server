@@ -28,6 +28,11 @@ class UserController {
       response.status(401).send(validation.messages());
     }
   }
+
+  async accessToken({request, response, auth}){
+    return await auth.authenticator('api').generate(auth.user);
+  }
+
   async register({ request, response }) {
     const rules = {
       email: 'required|email|unique:users,email',
