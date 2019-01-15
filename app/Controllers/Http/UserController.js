@@ -30,7 +30,12 @@ class UserController {
   }
 
   async accessToken({request, response, auth}){
-    return await auth.authenticator('api').generate(auth.user);
+    let tokens = await auth.authenticator('api').listTokensForUser(auth.user);
+    if(tokens.length > 0){
+      return {"type":"bearer", "token":tokens[0].token};
+    }else{
+      return await auth.authenticator('api').generate(auth.user);
+    }
   }
 
   async register({ request, response }) {
