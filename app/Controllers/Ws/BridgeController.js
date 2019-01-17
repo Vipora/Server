@@ -10,15 +10,14 @@ class BridgeController {
     console.log(socket.id + " joined");
   }
 
-  onMessage(message){
+  //This method gets called if the bridge sent an event
+  onBridge(message){
+    console.log(message);
     switch(message.event){
       case 'test':
-        Ws.getChannel("frontend:*")
-          .topic("frontend:" + this.auth.user.username)
-          .broadcast("event", message);
-
+        this.socket.broadcast('client', message);
+        break;
     }
-    console.log(message);
   }
 }
 
