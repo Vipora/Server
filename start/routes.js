@@ -25,4 +25,4 @@ Route.group(() => {
 }).prefix('api/v1');
 
 
-//Route.on('/*').render('welcome')
+Route.on('/*').render('err')
