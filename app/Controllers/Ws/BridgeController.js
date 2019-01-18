@@ -13,8 +13,8 @@ class BridgeController {
   //This method gets called if the bridge sent an event
   onBridge(message){
     console.log(message);
-    switch(message.event){
-      case 'test':
+    switch(message.uri){
+      case '/lol-champ-select/v1/session':
         this.socket.broadcast('client', message);
         break;
     }

@@ -20,7 +20,4 @@ Ws.channel('chat', ({ socket, auth }) => {
   console.log('user joined with %s socket id', socket.id)
 });
 
-Ws.channel('bridge:*', 'BridgeController').middleware(['auth:api', 'userRooms']);
-Ws.channel('frontend:*', ({ socket }) => {
-  console.log("frontend %s joined", socket.id)
-}).middleware(["auth:jwt", "userRooms"]);
+Ws.channel('bridge:*', 'BridgeController').middleware(['auth:api,jwt', 'userRooms']);
