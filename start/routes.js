@@ -18,9 +18,10 @@ const Route = use('Route')
 Route.group(() => {
     Route.post('/auth/login', 'UserController.login')
     Route.post('/auth/register', 'UserController.register')
-    Route.post('/auth/logout', 'UserController.logout')
-    Route.post('/auth/token/refresh', 'UserController.refresh')
+    Route.post('/auth/logout', 'UserController.logout').middleware(['auth'])
+    Route.post('/auth/token/refresh', 'UserController.refresh').middleware(['auth'])
 
+    Route.get('/user', 'UserController.userData').middleware(['auth']);
     Route.get('/user/token', 'UserController.accessToken').middleware(['auth'])
 }).prefix('api/v1');
 

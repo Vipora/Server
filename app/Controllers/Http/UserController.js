@@ -29,6 +29,10 @@ class UserController {
     }
   }
 
+  async userData({auth}){
+    return auth.user;
+  }
+
   async accessToken({request, response, auth}){
     let tokens = await auth.authenticator('api').listTokensForUser(auth.user);
     if(tokens.length > 0){
