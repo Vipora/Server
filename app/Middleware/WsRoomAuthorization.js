@@ -13,7 +13,7 @@ class WsRoomAuthorization {
    * @param {Function} next
    */
   async wsHandle ({ socket, request, auth }, next) {
-    if(socket.topic.split(":")[1] === auth.user.username)
+    if(socket.topic.split(":")[1] === auth.user.email)
       // call next to advance the request
       await next()
     else{
