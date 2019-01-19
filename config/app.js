@@ -28,6 +28,7 @@ module.exports = {
   |
   */
   appKey: Env.getOrFail('APP_KEY'),
+  championGGKey: Env.getOrFail('CHAMPION_GG_KEY'),
 
   http: {
     /*
