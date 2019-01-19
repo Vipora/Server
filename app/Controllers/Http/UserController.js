@@ -35,11 +35,14 @@ class UserController {
 
   async accessToken({request, response, auth}){
     let tokens = await auth.authenticator('api').listTokensForUser(auth.user);
+    let data = null;
     if(tokens.length > 0){
-      return {"type":"bearer", "token":tokens[0].token};
+      data = {"type":"bearer", "token":tokens[0].token};
     }else{
-      return await auth.authenticator('api').generate(auth.user);
+      data = await auth.authenticator('api').generate(auth.user);
     }
+    data.token = Encryption.decrypt(data.token);
+    return data;
   }
 
   async register({ request, response }) {
@@ -54,12 +57,12 @@ class UserController {
       'username',
       'password'
     ]);
-
-    const validation = await validate({ email, username, password }, rules);
+    var key = uuid();
+    const validation = await validate({ email, username, password, key }, rules);
 
     if (!validation.fails()) {
       try {
-        const user = await User.create({ email, username, password });
+        const user = await User.create({ email, username, password, key });
         return response.send({ message: 'User has been created' });
       } catch (err) {
         response.status(401).send({ error: 'Please try again' });

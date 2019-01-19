@@ -10,9 +10,10 @@ const Ws = use('Ws')
 | Global middleware are executed on each Websocket channel subscription.
 |
 */
-const globalMiddleware = [
+const globalMiddleware = [  
+  'App/Middleware/ParamAuthorizazionToHeader',
+  'App/Middleware/EncryptToken',
   'Adonis/Middleware/AuthInit',
-  'App/Middleware/ParamAuthorizazionToHeader'
 ]
 
 
