@@ -21,7 +21,7 @@ Route.group(() => {
     Route.post('/auth/logout', 'UserController.logout').middleware(['auth'])
     Route.post('/auth/token/refresh', 'UserController.refresh').middleware(['auth'])
 
-    Route.get('/user', 'UserController.userData').middleware(['auth']);
+    Route.get('/user', 'UserController.userData').middleware(['auth:api,jwt']);
     Route.get('/user/token', 'UserController.accessToken').middleware(['auth'])
 }).prefix('api/v1');
 
